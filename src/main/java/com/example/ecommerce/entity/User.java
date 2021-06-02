@@ -31,11 +31,11 @@ public class User implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date joinDate;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private UserAddress address;
 
-	@OneToMany(mappedBy ="userReference" ,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy ="userReference" ,fetch = FetchType.LAZY, cascade = CascadeType.MERGE )
 	private List<Bill> bills;
 
 	public User(){}
@@ -83,6 +83,10 @@ public class User implements Serializable {
 
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
+	}
+
+	public UserAddress getAddress() {
+		return address;
 	}
 }
 

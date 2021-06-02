@@ -17,6 +17,11 @@ public class ProductServiceImpl implements IProductService {
     @Autowired
     private IProductRepository repository;
 
+    @Autowired
+    public void createDefaultProduct() {
+        final Product inputProduct = buildProduct("12343", "blwablwa", "Blaw blaw", 500.00);
+        repository.save(inputProduct);
+    }
     @Override
     public Product createProduct(Product product) {
         if(product != null){
@@ -41,4 +46,14 @@ public class ProductServiceImpl implements IProductService {
     public Optional<Product> getProduct(Long id) {
         return repository.findById(id);
     }
+
+    private Product buildProduct(final String code, final String name, final String description, final Double price) {
+        final Product product = new Product();
+        product.setCode(code);
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        return product;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.ecommerce.service;
 
+import com.example.ecommerce.entity.Type;
 import com.example.ecommerce.entity.UserType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,4 +15,5 @@ public interface IUserTypeService {
     boolean updateType(UserType type);
     List<UserType> findAllTypes();
     Optional<UserType> findOneType(Long id);
+    UserType findOneTypeByType(Type type);
 }

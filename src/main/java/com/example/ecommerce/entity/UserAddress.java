@@ -43,5 +43,9 @@ public class UserAddress implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }
 

@@ -1,11 +1,12 @@
 package com.example.ecommerce.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name="user_type")
-public class UserType {
+public class UserType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

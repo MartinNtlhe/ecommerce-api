@@ -25,7 +25,7 @@ public class Bill {
     @Column(name="reference")
     private String reference;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.MERGE )
     @JoinColumn(name = "bill")
     private List<BillItem> billItems;
 

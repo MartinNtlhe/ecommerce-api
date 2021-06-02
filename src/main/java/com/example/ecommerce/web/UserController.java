@@ -2,7 +2,9 @@ package com.example.ecommerce.web;
 
 import com.example.ecommerce.config.ResourceNotFound;
 import com.example.ecommerce.entity.User;
+import com.example.ecommerce.resource.IUserAddressRepository;
 import com.example.ecommerce.resource.IUserRepository;
+import com.example.ecommerce.service.bean.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -22,6 +24,9 @@ public class UserController {
     @Autowired
     private IUserRepository IUserRepository;
 
+    @Autowired
+    private UserServiceImpl userServiceImpl;
+
     @ApiOperation(value = "Create a user", response = ResponseEntity.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Successfully created user.")})
     @RequestMapping(method = RequestMethod.POST, value = "/create")
@@ -36,7 +41,7 @@ public class UserController {
     @ApiOperation(value = "Get list of users", response = ResponseEntity.class)
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public ResponseEntity<List<User>> findAll(){
-        return new ResponseEntity<>(IUserRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(userServiceImpl.findAllUsers(), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Get a single user", response = ResponseEntity.class)
