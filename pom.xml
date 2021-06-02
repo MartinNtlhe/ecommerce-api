@@ -152,6 +152,9 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+						<configuration>
+							<outputDirectory>report</outputDirectory>
+						</configuration>
 					</execution>
 					<!-- Threshold -->
 					<execution>
