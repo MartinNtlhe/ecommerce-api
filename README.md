@@ -48,7 +48,7 @@ Run the application on localhost:
 ```
 mvn spring-boot:run
 ```
-Validate. You should be able to read `swagger documentation` of the application which list all apis of the system.
+You should be able to read [swagger documentation](#documentation) of the application which list all apis of the system.
 
 ## Testing
 To run for specific tests, there are 4 test provided and can be executed as follows:
