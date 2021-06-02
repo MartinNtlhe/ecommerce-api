@@ -64,6 +64,15 @@
 			</exclusions>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			&lt;!&ndash;  must be on the classpath  &ndash;&gt;-->
+<!--			<groupId>org.jacoco</groupId>-->
+<!--			<artifactId>org.jacoco.agent</artifactId>-->
+<!--			<classifier>runtime</classifier>-->
+<!--			<version>0.7.9</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
 		<!-- This will get hamcrest-core automatically -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>
@@ -127,17 +136,41 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M5</version>
-				<configuration>
-					<includes>
-						<include>UserTypeTest.java</include>
-						<include>UserTest.java</include>
-						<include>ProductServiceTest.java</include>
-						<include>BillServiceTest.java</include>
-					</includes>
-				</configuration>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.3</version>
+				<executions>
+					<execution>
+						<id>coverage-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>coverage-report</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<!-- Threshold -->
+					<execution>
+						<id>coverage-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>CLASS</element>
+									<excludes>
+										<exclude>com.example.ecommerce.EcommerceApplication</exclude>
+									</excludes>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
