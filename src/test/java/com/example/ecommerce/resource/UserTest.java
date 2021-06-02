@@ -1,5 +1,6 @@
 package com.example.ecommerce.resource;
 
+import com.example.ecommerce.EcommerceApplication;
 import com.example.ecommerce.entity.Type;
 import com.example.ecommerce.entity.User;
 import com.example.ecommerce.entity.UserAddress;
@@ -12,6 +13,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootContextLoader;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +26,10 @@ import static com.example.ecommerce.util.DateUtil.stringToDate;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = EcommerceApplication.class, loader = SpringBootContextLoader.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserTest {
 
     @Mock

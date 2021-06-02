@@ -33,11 +33,11 @@ Clone project from its repository into your local machine and navigate into its 
 $ git clone git@github.com:MartinNtlhe/ecommerce-api.git
 $ cd ecommerce-api
 ```
-#####Build
+##### Build
 To build the project one must run the following commands on the project root folder:
 `mvn clean package`
 
-#####Run
+##### Run
 Run the application on localhost:
 
 ```
@@ -49,5 +49,13 @@ Open [swagger-document](http://localhost:8081/swagger-ui.html#/) to view the api
 
 That's it...
 
-##Testing
-To run application's unit tests, run in the terminal `mvn clean verify -DskipITs=false`.
+## Testing
+To run for specific tests, there are 4 test provided and can be executed as follows:
+ * UserTest run ``mvn "-DTest=UserTest" test``
+ * UserTypeTest ``mvn "-DTest=UserTest" test``
+ * ProductServiceTest ``mvn "-DTest=ProductServiceTest" test``
+ * BillServiceTest ``mvn "-DTest=BillServiceTest" test``
+ 
+##### Code Coverage
+
+To generate code coverage report, run in the terminal `mvn clean verify`. This will generate reports in the the folder `report` relative to the root project folder. To access the report, open the folder and `index.html` on the browser.
