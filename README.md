@@ -8,7 +8,7 @@ Here is an overview of the project's features:
 
 Below is a class diagram for the main entities of the system
 
-<img src="https://github.com/MartinNtlhe/ecommerce-api/raw/master/docs/class-diagram.png" title="Class diagram"><br/>
+<img src="https://github.com/MartinNtlhe/ecommerce-api/blob/main/docs/class-diagram.png" title="Class diagram"><br/>
 
 ## Table of contents
 * [General info](#general-info)
@@ -25,7 +25,7 @@ Project is created with:
 * [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/)
 
-#### Pre-requisites:
+## Pre-requisites:
 - Install Java JDK 1.8 and ensure it is available in your PATH
 - _(Optional)_ Apache Maven is used for an alternate build system.  [Click for instructions](https://maven.apache.org/install.html).
 
@@ -61,7 +61,7 @@ To run for specific tests, there are 4 test provided and can be executed as foll
 
 To generate code coverage report, run in the terminal `mvn clean verify`. This will generate reports in the the folder `report` relative to the root project folder. To access the report, open the folder and `index.html` on the browser.
 
-### Documentation
+## Documentation
 
 Api documentation has been done using swagger documents, and can be accessed by clicking on [swagger-document](http://localhost:8081/swagger-ui.html#/) to view the api documentation
 
